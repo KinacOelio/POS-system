@@ -1,0 +1,33 @@
+planning
+
+tables:
+Products
+	PK:ProductID	 int
+	UQ:name 		 String
+	price			 real
+	FK:CategoryID    int
+	stock  			 int
+	heldStock		 int
+	
+customers
+	PK: CustomerID		int
+	name				string
+
+Category
+	PK:CategoryID	    int
+	UQ:name				string 
+	tax  				int 
+	
+Purchase	
+	PK:PurchaseID	    int 
+	total				real
+	FK:customerID		int
+	dateTime			DateTime
+	
+PurchaseHistory
+	FK,PK: PurchaseID		int
+	FK,PK: PurchaseLine		int
+	ProductID				int
+	discount				int
+	quantity				int
+	
