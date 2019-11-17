@@ -1,0 +1,35 @@
+
+th {
+    width: 25%;
+    height: 3em;
+    text-align: center;
+}
+
+td {
+    width: 6em;
+    height: 2em;
+    text-align: center;
+}
+
+em { color: red; font-style: italic; }
+
+tr.normal {
+    
+    background-color: #E4F8D3;    
+}
+tr.normal td, tr.normal th, tr.total th, tr.total td {
+    text-align: right;    
+    width: 5em;
+    height: 0.75em;
+    padding: 0.5em;
+    color: #5A574E;
+}
+
+tr.total {     
+    background-color: #96DD4F;
+}
+
+tr.total th, tr.total td {
+        font-weight: bold;
+    color: #000000;
+}

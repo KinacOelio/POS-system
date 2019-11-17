@@ -9,15 +9,8 @@ define('DBCONNSTRING','mysql:host='.DBHOST.'; mysql:dbname='.DBNAME.'; charset=u
 $pdo = new PDO(DBCONNSTRING,DBUSER,DBPASS);
 $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-function createCategory(){
-  //  global $pdo;
-	//$sqlAllCars = "SELECT * FROM cars";
-	//$result = $pdo = query("SELECT * FROM kiattome_cars.cars");
-	//while($row = $result = fetch()){
-	//	if($modelType == $row['type']){
-			echo 'test';
-	//	}
-	//}
+function genericFunction(){
+
 }
 ?>
 </script>
@@ -25,11 +18,30 @@ function createCategory(){
 <html lang="en">
 <head>
     <meta charset="utf-8">  
+	<link href="Sales Page Style.css" rel="stylesheet"> 
     <title>Sales</title>
 </head>
 
 <body>
-<?php echo("test"); ?>
+	<table border=1>
+<tr>
+  <th>Item</th><th>Quantity</th><th>Price</th><th>Discount</th>
+<?php
+for($i=50;$i<=1000;$i+=50){
+   echo "<tr>";
+   echo "<td>$i</td>";
+   // replace the ??? with the calls to convertUnits function
+   echo "<td>???</td>";
+   echo "<td>???</td>";
+   echo "<td>???</td>";
+   echo "</tr>";
+}
+?>
+</tr>
+</table>
+
+
+
 </body>
 
 </html>1
