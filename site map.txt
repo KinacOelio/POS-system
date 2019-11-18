@@ -1,0 +1,25 @@
+sales page (home)
+	database interactions:
+		-INSERT purchase, including purchase details
+		thats it
+		-if we have a separate payment screen, ran by a different page rather than a pop-up, then this page would have NO database interactions.
+		instead, it would send the information to the payment page, which would then call the actual database modification function. 
+	|
+LINKS TO (via button)
+	|
+admin page
+	database interactions: 
+		-INSERT product
+		-UPDATE product
+		-INSERT customer
+		-UPDATE customer
+		-SELECT purchases
+			-WHERE customerID = xxx
+			-WHERE DateTime = xxx
+		SELECT Purchase Details
+			-WHERE PurchaseID = xxx
+		-I imagined this would all be accomplished via dropdown menu's that update the page, or pop-up menus. However, each functionality, or groups of functionalities (i.e INSERT and UPDATE products),
+		could be offloaded to separate pages. If this is the case then this page would have NO database interactions. It would instead serve as a hub linking you to each of the 
+		separate functionalities. 
+		
+			
