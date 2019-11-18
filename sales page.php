@@ -1,35 +1,26 @@
-<?php
-//instantiating the PDO 
 
-define('DBHOST', 'localhost');
-define('DBNAME', 'POS');
-define('DBUSER', 'root');
-define('DBPASS', '');
-define('DBCONNSTRING','mysql:host='.DBHOST.'; mysql:dbname='.DBNAME.'; charset=utf8mb4;');
-$pdo = new PDO(DBCONNSTRING,DBUSER,DBPASS);
-$pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-function genericFunction(){
-
-}
-?>
-</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">  
 	<link href="Sales Page Style.css" rel="stylesheet"> 
+	<?php require_once "queries.php"; ?>
     <title>Sales</title>
 </head>
 
 <body>
+
+<h1>Purchase</h1>
+
 	<table border=1>
 <tr>
   <th>Item</th><th>Quantity</th><th>Price</th><th>Discount</th>
 <?php
+echo genericFunction();
 for($i=50;$i<=1000;$i+=50){
    echo "<tr>";
-   echo "<td>$i</td>";
+   echo " <td><input type='text'></td>";
    // replace the ??? with the calls to convertUnits function
    echo "<td>???</td>";
    echo "<td>???</td>";
@@ -44,4 +35,4 @@ for($i=50;$i<=1000;$i+=50){
 
 </body>
 
-</html>1
+</html>
