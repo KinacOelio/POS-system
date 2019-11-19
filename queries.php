@@ -2,7 +2,7 @@
 //instantiating the PDO 
 
 define('DBHOST', 'localhost');
-define('DBNAME', 'POS');
+define('DBNAME', 'pos');
 define('DBUSER', 'root');
 define('DBPASS', '');
 define('DBCONNSTRING','mysql:host='.DBHOST.'; mysql:dbname='.DBNAME.'; charset=utf8mb4;');
@@ -15,8 +15,10 @@ function genericFunction(){
 }
 
 function getProducts($name_fragment){
-	$sth = $dbh->prepare("SELECT name, colour FROM fruit");
-	$sth->execute();
+	global $pdo;
+	$sql = "";
+	$result =$pdo->query($sql);
+	$element = $result->fetch();
 }
 
 
@@ -34,11 +36,14 @@ function addCustomer($name){
 
 function addItem($name){
 
-	//retern nothing
+	//retern nothing $TOTAL, $CUSTOMER, $ITEMS_ARRAY
 }
 
-function add purchase($TOTAL, $CUSTOMER, $ITEMS_ARRAY){
-
+function addPurchase(){
+	global $pdo;
+	$sql = "INSERT INTO purchases VALUES (1, 1, 1, getdate()";
+	$pdo->query($sql);
+	
 
 }
 //and so on for the various features the site will need

@@ -15,7 +15,13 @@
 <tr>
   <th>Item</th><th>Quantity</th><th>Price</th><th>Discount</th>
 <?php
-getProducts("test");
+//PurchaseLine 	ProductID 	discount 	quantity 
+$detailLine = array(1, 6, 0, 2);
+
+//total CustomerID 	DateTime details
+$purchase = [20, 0, $detailLine];
+
+addPurchase();
 echo genericFunction();
 for($i=50;$i<=1000;$i+=50){
    echo "<tr>";
