@@ -2,17 +2,22 @@ salesPage.html
 	calls:
 		queries.php.getItems($name_or_ID_fragment) : array
 		queries.php.getCustomers($name_or_ID_fragment) : array
+	one-way link to checkoutpage.htlm
+	two-way link to/from infopage.html, adminPage.html
 
 checkoutpage.html
 	calls:
 		functions.js.calculateTotal(items_array) : double
 		queries.php.addPurchase($total, $customer, $items_array) : boolean (success or failure)
+	one-way link from checkoutpage.html
+	after completion, automatically returns you to salespage.html
 
 infoPage.html
 	calls:
 		queries.php.getCustomers($name_or_ID_fragment) : array
 		queries.php.getItems($name_or_ID_fragment) : array
 		queries.php.getPurchase($name_fragment_or_date) : array
+	two-way link to/from salespage.html, adminpage.html
 
 adminPage.html
 	calls: 
@@ -21,6 +26,7 @@ adminPage.html
 		queries.php.addItem ($name, $price, $category) : boolean (success or failure)
 		queries.php.removeItem($PID) : boolean(success or failure)
 		queries.php.addStock($PID, quantity) : boolean (success or failure)
+	two-way link to/from infopage.html, salespage.html
 		
 -----------------------------
 ALTERATIVE ADMIN FUNCTIONALITY: 
