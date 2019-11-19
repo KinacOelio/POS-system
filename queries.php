@@ -15,35 +15,29 @@ function genericFunction(){
 }
 
 function getProducts($name_fragment){
-	return array
+	$sth = $dbh->prepare("SELECT name, colour FROM fruit");
+	$sth->execute();
 }
 
-function getProducts($ProductID_fragment){
-	return array
-}
 
 function getCustomer($name_fragment){
 
-	return array
+	//return array
 }
 
-function getCustomer($CustomerID_fragment){
-
-	return array
-}
 
 function addCustomer($name){
 
 
-	return nothing
+	//return nothing
 }
 
 function addItem($name){
 
-	retern nothing
+	//retern nothing
 }
 
-and so on for the various features the site will need
+//and so on for the various features the site will need
 
 
 ?>

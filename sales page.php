@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +15,7 @@
 <tr>
   <th>Item</th><th>Quantity</th><th>Price</th><th>Discount</th>
 <?php
+getProducts("test");
 echo genericFunction();
 for($i=50;$i<=1000;$i+=50){
    echo "<tr>";
