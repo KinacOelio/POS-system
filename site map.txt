@@ -1,25 +1,60 @@
-sales page (home)
-	database interactions:
-		-INSERT purchase, including purchase details
-		thats it
-		-if we have a separate payment screen, ran by a different page rather than a pop-up, then this page would have NO database interactions.
-		instead, it would send the information to the payment page, which would then call the actual database modification function. 
-	|
-LINKS TO (via button)
-	|
-admin page
-	database interactions: 
-		-INSERT product
-		-UPDATE product
-		-INSERT customer
-		-UPDATE customer
-		-SELECT purchases
-			-WHERE customerID = xxx
-			-WHERE DateTime = xxx
-		SELECT Purchase Details
-			-WHERE PurchaseID = xxx
-		-I imagined this would all be accomplished via dropdown menu's that update the page, or pop-up menus. However, each functionality, or groups of functionalities (i.e INSERT and UPDATE products),
-		could be offloaded to separate pages. If this is the case then this page would have NO database interactions. It would instead serve as a hub linking you to each of the 
-		separate functionalities. 
+salesPage.html
+	calls:
+		queries.php.getItems($name_or_ID_fragment) : array
+		queries.php.getCustomers($name_or_ID_fragment) : array
+
+checkoutpage.html
+	calls:
+		functions.js.calculateTotal(items_array) : double
+		queries.php.addPurchase($total, $customer, $items_array) : boolean (success or failure)
+
+infoPage.html
+	calls:
+		queries.php.getCustomers($name_or_ID_fragment) : array
+		queries.php.getItems($name_or_ID_fragment) : array
+		queries.php.getPurchase($name_fragment_or_date) : array
+
+adminPage.html
+	calls: 
+		queries.php.addCustomer($name)	: boolean (success or failure)
+		queries.php.removeCustomer($CID) : boolean(success or failure)
+		queries.php.addItem ($name, $price, $category) : boolean (success or failure)
+		queries.php.removeItem($PID) : boolean(success or failure)
+		queries.php.addStock($PID, quantity) : boolean (success or failure)
 		
+-----------------------------
+ALTERATIVE ADMIN FUNCTIONALITY: 
+customerChange.html
+		queries.php.addCustomer($name)	: boolean (success or failure)
+		queries.php.removeCustomer($CID) : boolean(success or failure)
+itemChange.html	
+		queries.php.addItem ($name, $price, $category) : boolean (success or failure)
+		queries.php.removeItem($PID) : boolean(success or failure)
+		queries.php.addStock($PID, quantity) : boolean (success or failure)
+---------------------------
+	
+functions.js
+	contains:
+		calculateTotal(items_array) : double
+	
+queries.php
+	contains: 
+		getItems($name_or_ID_fragment) : array
+		
+		getCustomers($name_or_ID_fragment) : array
+		
+		addPurchase($total, $customer, $items_array) : boolean
+			In addition to adding to both purchases and purchase details, must
+			remove quantity for each item from itemStock
+		
+		getPurchase($name_fragment_or_date) : array
+		
+		addCustomer($name) : boolean
+		
+		removeCustomer($CID) : boolean
+		
+		queries.php.addItem ($name, $price, $category) : boolean
+		
+		queries.php.removeItem($PID) : boolean
 			
+		queries.php.addStock($PID, quantity) : boolean
