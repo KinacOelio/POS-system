@@ -37,6 +37,10 @@ function addItem($name){
 	//retern nothing
 }
 
+function add purchase($TOTAL, $CUSTOMER, $ITEMS_ARRAY){
+
+
+}
 //and so on for the various features the site will need
 
 
