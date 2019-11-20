@@ -3,7 +3,7 @@
 <head>
 	 <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>info page </title>
+	<title>admin page</title>
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">	
 </head>
@@ -12,13 +12,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="salespage.html">sales page</a>
+        <a class="nav-link" href="salespage.php">sales page</a>
       </li>
 	  <li class="nav-item">
-        <a class="nav-link" href="infopage.html">info page</a>
+        <a class="nav-link" href="infopage.php">info page</a>
       </li>
 	  <li class="nav-item">
-        <a class="nav-link" href="adminpage.html">admin page</a>
+        <a class="nav-link" href="adminpage.php">admin page</a>
       </li>
     </ul>
   </div>
