@@ -41,7 +41,8 @@ function addItem($name){
 
 function addPurchase(){
 	global $pdo;
-	$sql = "INSERT INTO purchases VALUES (1, 1, 1, getdate()";
+	$sql = "INSERT INTO pos.purchases (total, CustomerID, DateTime) VALUES (1, 2, NOW())";
+	
 	$pdo->query($sql);
 	
 

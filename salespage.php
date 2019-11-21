@@ -27,7 +27,9 @@
   </div>
 </nav>
 
-	<table border=1>
+<form action="checkoutpage.php" target="_parent" method="post">
+
+<table border=1>
 <tr>
   <th>Item</th><th>Quantity</th><th>Price</th><th>Discount</th>
 <?php
@@ -39,9 +41,9 @@ $purchase = [20, 0, $detailLine];
 
 addPurchase();
 echo genericFunction();
-for($i=50;$i<=1000;$i+=50){
+for($i=1;$i<=10;$i+=1){
    echo "<tr>";
-   echo " <td><input type='text'></td>";
+   echo " <td><input type='text' name=productID".$i."></td>";
    // replace the ??? with the calls to convertUnits function
    echo "<td>???</td>";
    echo "<td>???</td>";
@@ -51,6 +53,8 @@ for($i=50;$i<=1000;$i+=50){
 ?>
 </tr>
 </table>
+	<input type="submit">
+</form>
 
 
 

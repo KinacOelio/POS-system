@@ -3,43 +3,22 @@
 <head>
 	 <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <?php require_once "queries.php"; ?>
 	<title>checkout page</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-<a class="navbar-brand" href="index.php"><img src = "images/logoS.jpg"></a>
-<!--Small screen button-->
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-<span class="navbar-toggler-icon"></span>
-</button>
+<h2>your total is 150 dollars</h2>
+<h6>item</h6>
 
-  <!--main links-->
-<div class="collapse navbar-collapse" id="collapsibleNavbar">
-	
-	<ul class="navbar-nav navLinks">
-	<li class="nav-item name"><a class="nav-link name" href="index.php"><h3>Dover Auto</h3></a></li>	
-	<li class="nav-item"><a class="nav-link" href="catalog.php">Browse</a></li>
-	<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-	<li class="nav-item"><a class="nav-link" href="location.php">Location</a></li>
-	<li class="nav-item"><a class="nav-link" href="comment.php">Testimony</a></li>
-	
-	</ul>
-	</div>
-	
+<?php
+for($i=1;$i<=10;$i+=1){
+echo  $_POST["productID".$i];
 
-<!--login links-->
-	<div class="collapse navbar-collapse" id="collapsibleNavbar">
-	<ul class="navbar-nav login">
-	<li class="nav-item" ><a class="nav-link" href="login.php">Login</a></li>
-	<li class="nav-item"><a class="nav-link" href="register.php">Sign Up</a></li>
-	</ul>
-	</div>
-	
-
-</nav>
+}
+?>
 
 </body>
 </html>
