@@ -14,6 +14,20 @@ function genericFunction(){
 	return 'test';
 }
 
+function listAllItems(){
+	global $pdo;
+	$sql = "SELECT * FROM pos.products";
+	$array = $pdo->query($sql);
+	return $array;
+}
+
+function listAllCustomers(){
+	global $pdo;
+	$sql = "SELECT * FROM pos.customers";
+	$array = $pdo->query($sql);
+	return $array;
+}
+
 function getProducts($name_fragment){
 	global $pdo;
 	$sql = "";

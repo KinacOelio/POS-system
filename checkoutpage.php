@@ -19,6 +19,8 @@ echo  $_POST["productID".$i];
 
 }
 ?>
-
+<p>
+<a href="salespage.php"><button>new sale</button></a>
+</p>
 </body>
 </html>
