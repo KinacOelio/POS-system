@@ -26,9 +26,9 @@
 </nav>
 
 <p>list items</p>
+can leave blank to list all
 <form action="infopage.php" target="_self" method="post">
-	<input type="submit" value="listAllItems" name="submit">
-	<input type="submit" value="listAllCustomers" name="submit">
+	<input type="submit" value="listMatchingCustomers" name="submit">
 	<input type="submit" value="listMatchingItems" name="submit">
 	<input type='text' name="text">
 </form>
@@ -36,18 +36,16 @@
 	//greater if  tests to see if method=post
 	if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		//inner if tests to see specific post choice
-		if($_POST["submit"] == "listAllItems"){
-			$array = listAllItems();
-			while($row = $array->fetch()){
-			echo '<p>'.$row['Name'].'</p>';
-			}
-		}else if($_POST["submit"] == "listAllCustomers"){
-			$array = listAllCustomers();
-			while($row = $array->fetch()){
-			echo '<p>'.$row['Name'].'</p>';
+		if($_POST["submit"] == "listMatchingCustomers"){
+			$array = getMatchingCustomers("/".$_POST["text"]."/m");
+			while($name = next($array)){
+				echo $name;
 			}
 		}else if($_POST["submit"] == "listMatchingItems"){
-		
+			$array = getMatchingProducts("/".$_POST["text"]."/m");
+			while($name = next($array)){
+				echo $name;
+			}
 		}
 		
 	}

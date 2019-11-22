@@ -14,19 +14,39 @@ function genericFunction(){
 	return 'test';
 }
 
-function listAllItems(){
-	global $pdo;
-	$sql = "SELECT * FROM pos.products";
-	$array = $pdo->query($sql);
-	return $array;
-}
 
-function listAllCustomers(){
+function getMatchingCustomers($name_frag){
 	global $pdo;
 	$sql = "SELECT * FROM pos.customers";
 	$array = $pdo->query($sql);
-	return $array;
+	$retArray = [];
+	
+	$i = 0;
+	while($row = $array->fetch()){
+		if(preg_match($name_frag, $row['Name'])){
+			$retArray[$i] =  $row['Name'];
+			$i+=1;
+		}
+	}
+	return $retArray;
 }
+
+function getMatchingProducts($name_frag){
+	global $pdo;
+	$sql = "SELECT * FROM pos.products";
+	$array = $pdo->query($sql);
+	$retArray = [];
+	
+	$i = 0;
+	while($row = $array->fetch()){
+		if(preg_match($name_frag, $row['Name'])){
+			$retArray[$i] =  $row['Name'];
+			$i+=1;
+		}
+	}
+	return $retArray;
+}
+
 
 function getProducts($name_fragment){
 	global $pdo;
