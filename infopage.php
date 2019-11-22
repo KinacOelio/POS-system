@@ -38,12 +38,14 @@ can leave blank to list all
 		//inner if tests to see specific post choice
 		if($_POST["submit"] == "listMatchingCustomers"){
 			$array = getMatchingCustomers("/".$_POST["text"]."/m");
-			while($name = next($array)){
+			for($i = 0; $i < sizeof($array); $i++){
+				$name = $array[$i];
 				echo "<p>".$name."</p>";
 			}
 		}else if($_POST["submit"] == "listMatchingItems"){
 			$array = getMatchingProducts("/".$_POST["text"]."/m");
-			while($name = next($array)){
+			for($i = 0; $i < sizeof($array); $i++){
+				$name = $array[$i];
 				echo "<p>".$name."</p>";
 			}
 		}
