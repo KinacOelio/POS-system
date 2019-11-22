@@ -39,12 +39,12 @@ can leave blank to list all
 		if($_POST["submit"] == "listMatchingCustomers"){
 			$array = getMatchingCustomers("/".$_POST["text"]."/m");
 			while($name = next($array)){
-				echo $name;
+				echo "<p>".$name."</p>";
 			}
 		}else if($_POST["submit"] == "listMatchingItems"){
 			$array = getMatchingProducts("/".$_POST["text"]."/m");
 			while($name = next($array)){
-				echo $name;
+				echo "<p>".$name."</p>";
 			}
 		}
 		
