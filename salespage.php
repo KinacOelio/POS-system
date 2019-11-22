@@ -34,12 +34,19 @@
   <th>Item</th><th>Quantity</th><th>Price</th><th>Discount</th>
 <?php
 //PurchaseLine 	ProductID 	discount 	quantity 
-$detailLine = array(1, 6, 0, 2);
+$detailLine = array("PurchaseLine"=>1,"ProductID" => 6, "Discount" => 0, "Quantity" => 2); //August: here is an easier way to format the array. It will keep us from having to memorize arraykeys.
 
 //total CustomerID 	DateTime details
-$purchase = [20, 0, $detailLine];
+$purchase = ["total" => 20, "CustomerID"=> 0, "Details" => $detailLine]; //August: can also do multementional assoc arrays.
+//echo $purchase['Details']['Discount']; August: Heres an example of how to print from this.
+/*
+//this is an example of how keyed arrays work in PHP
+foreach($detailLine as $key => $value){
+	echo " [".$key."] ".$value."<br />";
+}*/ 
 
-addPurchase();
+
+addPurchase(1,2);//placeholders
 echo genericFunction();
 for($i=1;$i<=10;$i+=1){
    echo "<tr>";
