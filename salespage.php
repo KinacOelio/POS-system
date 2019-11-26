@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">  
+	<link href="global.css" rel="stylesheet"> 
 	<link href="Sales Page Style.css" rel="stylesheet"> 
 	<?php require_once "queries.php"; ?>
     <title>Sales</title>
