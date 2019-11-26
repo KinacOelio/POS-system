@@ -73,34 +73,31 @@ function addCustomer($name){
 function addItem($name){
 	//August: slight confusion for do you want me to take an item name and return it's details? Do you want me to add it to pos.products?
 	 
-	//retern nothing $TOTAL, $CUSTOMER, $ITEMS_ARRAY
+	//return nothing
 }
 
-function addPurchase($total, $customerID){
-	// A: proxy function heading:  function addPurchase($purchase){
-	//A: Here I've attempted to reorder this function with parameters as well as prepared statements for extra security.
+function addPurchase($purchaseArray){
+	//adding the overall purchase
 	global $pdo;
-	//A: adding to purchases
-	//$sql = "INSERT INTO pos.purchases (total, CustomerID, DateTime) VALUES (1, 2, NOW())";
-	//$pdo->query($sql);
 	$stmt = $pdo->prepare("INSERT INTO pos.purchases (total, CustomerID, DateTime) VALUES (?, ?, NOW())");
+	$total = $purchaseArray['total'];
+	$customerID = $purchaseArray['CustomerID'];
 	$stmt ->execute([$total, $customerID]);
 	$stmt = null;
+	
 	//A: adding to purchase details.
 	//A: selecting the most recent purchase
 	$purchaseID = $pdo->lastInsertID();
-	
-	//A: didn't see the purchase object earlier. will update later. 
-	/*
-		$purchaseLine = $items_array['PurchaseLine'];
-		$productID = $items_array['ProductID'];
-		$discount = $items_array['Discount'];
-		$quantity = $items_array['Quantity'];
-		
-		$stmt = pdo->prepare("INSERT INTO poc.purchase_details(PurchaseID, PurchaseLine, ProductID, discount, quantity) VALUES (?,?,?,?,?)");
+	foreach($purchaseArray['Details'] as $details => $line){
+		//echo " [".$details."] ".$line['PurchaseLine']."<br />";
+		$stmt = $pdo->prepare("INSERT INTO pos.purchase_details(PurchaseID, PurchaseLine, ProductID, discount, quantity) VALUES (?,?,?,?,?)");
+		$purchaseLine = $line['PurchaseLine'];
+		$productID = $line['ProductID'];
+		$discount = $line['Discount'];
+		$quantity = $line['Quantity'];
 		$stmt ->execute([$purchaseID, $purchaseLine, $productID, $discount, $quantity]);
 		$stmt = null;
-	*/
+	} 
 }
 //and so on for the various features the site will need
 

@@ -28,40 +28,33 @@
 </nav>
 
 <form action="checkoutpage.php" target="_parent" method="post">
-
-<table border=1>
-<tr>
-  <th>Item</th><th>Quantity</th><th>Price</th><th>Discount</th>
-<?php
-//PurchaseLine 	ProductID 	discount 	quantity 
-$detailLine = array("PurchaseLine"=>1,"ProductID" => 6, "Discount" => 0, "Quantity" => 2); //August: here is an easier way to format the array. It will keep us from having to memorize arraykeys.
-
-//total CustomerID 	DateTime details
-$purchase = ["total" => 20, "CustomerID"=> 0, "Details" => $detailLine]; //August: can also do multementional assoc arrays.
-//echo $purchase['Details']['Discount']; August: Heres an example of how to print from this.
-/*
-//this is an example of how keyed arrays work in PHP
-foreach($detailLine as $key => $value){
-	echo " [".$key."] ".$value."<br />";
-}*/ 
-
-
-addPurchase(1,2);//placeholders
-echo genericFunction();
-for($i=1;$i<=10;$i+=1){
-   echo "<tr>";
-   echo " <td><input type='text' name=productID".$i."></td>";
-   // replace the ??? with the calls to convertUnits function
-   echo "<td>???</td>";
-   echo "<td>???</td>";
-   echo "<td>???</td>";
-   echo "</tr>";
-}
-?>
-</tr>
-</table>
+	<table border=1>
+		<tr>
+		<th>Item</th><th>Quantity</th><th>Price</th><th>Discount</th>
+			<?php
+			//creating the table
+			for($i=1;$i<=10;$i+=1){
+			echo "<tr>";
+			echo " <td><input type='text' name=productID".$i."></td>";
+			// replace the ??? with the calls to convertUnits function
+			echo "<td><input type='text' name=quantity".$i."></td>";
+			echo "<td><input type='text' name=quantity".$i." value = 5></td>";
+			echo "<td><input type='text' name=discount".$i."></td>";
+			echo "</tr>";
+			}
+			?>
+		</tr>
+	</table>
 	<input type="submit">
 </form>
+
+<?php
+
+
+
+?>
+	
+
 
 
 
@@ -70,5 +63,4 @@ for($i=1;$i<=10;$i+=1){
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
-
 </html>

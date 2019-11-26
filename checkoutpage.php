@@ -17,6 +17,22 @@
 for($i=1;$i<=10;$i+=1){
 echo  $_POST["productID".$i];
 
+$detailLine = ["PurchaseLine"=>0,"ProductID" => 0, "Discount" => 0, "Quantity" => 0]; 
+$details = [];
+for($i = 0; $i < 5; $i++){
+	$details[$i] = $detailLine;
+	$details[$i]['PurchaseLine'] = $i;
+	$details[$i]['ProductID'] = 2;
+	$details[$i]['Discount'] = 0;
+	$details[$i]['Quantity'] = 1;
+}
+
+
+$purchase = ["total" => 20, "CustomerID"=> 1, "Details" => $details];
+
+addPurchase($purchase);
+
+
 }
 ?>
 <p>
