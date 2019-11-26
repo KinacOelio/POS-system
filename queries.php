@@ -93,8 +93,6 @@ function addPurchase($purchaseArray){
 	$purchaseID = $pdo->lastInsertID();
 	echo count($purchaseArray['Details']);
 	foreach($purchaseArray['Details'] as $details => $line){
-		echo $line['ProductID'];
-		echo 'test';
 		if($line['ProductID'] == '') {return;}
 		$stmt = $pdo->prepare("INSERT INTO pos.purchase_details(PurchaseID, PurchaseLine, ProductID, discount, quantity) VALUES (?,?,?,?,?)");
 		$purchaseLine = $line['PurchaseLine'];

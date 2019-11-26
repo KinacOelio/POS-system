@@ -41,7 +41,7 @@
 			echo " <td><input type='text' name='productID".$i."'></td>";
 			// replace the ??? with the calls to convertUnits function
 			echo "<td><input type='text' name='quantity".$i."'></td>";
-			echo "<td><input type='text' name='price".$i."' value = 5></td>";
+			echo "<td><input type='text' name='price".$i."'></td>";
 			echo "<td><input type='text' name='discount".$i."'></td>";
 			echo "</tr>";
 			}

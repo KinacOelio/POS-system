@@ -14,15 +14,13 @@
 <h6>item</h6>
 
 <?php
-echo $_POST['productID9'];
-echo 'tt';
 $details = [];
 $purchase = ["total" => 0, "CustomerID"=> 0, "Details" => $details];
 
 //setting total and CID
 $total = 0;
 for($i=1;$i<=10;$i+=1){
-	$total += $_POST['price'.$i];
+	if($_POST['productID'.$i] != ''){$total += $_POST['price'.$i];}
 }
 $purchase['total'] = $total;
 $purchase['CustomerID'] = $_POST['CID'];
@@ -33,7 +31,6 @@ for($i = 1; $i < 10; $i++){
 	$details[$i] = $detailLine;
 	$details[$i]['PurchaseLine'] = $i;
 	$details[$i]['ProductID'] = $_POST['productID'.$i];
-	echo $_POST['productID'.$i];
 	$details[$i]['Discount'] = $_POST['discount'.$i];
 	$details[$i]['Quantity'] = $_POST['quantity'.$i];
 }
