@@ -82,14 +82,20 @@ function addPurchase($purchaseArray){
 	$stmt = $pdo->prepare("INSERT INTO pos.purchases (total, CustomerID, DateTime) VALUES (?, ?, NOW())");
 	$total = $purchaseArray['total'];
 	$customerID = $purchaseArray['CustomerID'];
+	if($purchaseArray['CustomerID'] == 0){
+		$customerID = 'NULL';
+	}
 	$stmt ->execute([$total, $customerID]);
 	$stmt = null;
 	
 	//A: adding to purchase details.
 	//A: selecting the most recent purchase
 	$purchaseID = $pdo->lastInsertID();
+	echo count($purchaseArray['Details']);
 	foreach($purchaseArray['Details'] as $details => $line){
-		//echo " [".$details."] ".$line['PurchaseLine']."<br />";
+		echo $line['ProductID'];
+		echo 'test';
+		if($line['ProductID'] == '') {return;}
 		$stmt = $pdo->prepare("INSERT INTO pos.purchase_details(PurchaseID, PurchaseLine, ProductID, discount, quantity) VALUES (?,?,?,?,?)");
 		$purchaseLine = $line['PurchaseLine'];
 		$productID = $line['ProductID'];

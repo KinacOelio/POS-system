@@ -29,7 +29,7 @@
 can leave blank to list all
 <form action="infopage.php" target="_self" method="post">
 	<input type="submit" value="listMatchingCustomers" name="submit">
-	<input type="submit" value="listMatchingItems" name="submit">
+	<input type="submit" value="listMatchingItems" name='submit'>
 	<input type='text' name="text">
 </form>
 <?php 

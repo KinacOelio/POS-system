@@ -14,26 +14,35 @@
 <h6>item</h6>
 
 <?php
-for($i=1;$i<=10;$i+=1){
-echo  $_POST["productID".$i];
-
-$detailLine = ["PurchaseLine"=>0,"ProductID" => 0, "Discount" => 0, "Quantity" => 0]; 
+echo $_POST['productID9'];
+echo 'tt';
 $details = [];
-for($i = 0; $i < 5; $i++){
+$purchase = ["total" => 0, "CustomerID"=> 0, "Details" => $details];
+
+//setting total and CID
+$total = 0;
+for($i=1;$i<=10;$i+=1){
+	$total += $_POST['price'.$i];
+}
+$purchase['total'] = $total;
+$purchase['CustomerID'] = $_POST['CID'];
+
+//filling details
+$detailLine = ["PurchaseLine"=>0, "ProductID" => 0, "Discount" => 0, "Quantity" => 0]; 
+for($i = 1; $i < 10; $i++){
 	$details[$i] = $detailLine;
 	$details[$i]['PurchaseLine'] = $i;
-	$details[$i]['ProductID'] = 2;
-	$details[$i]['Discount'] = 0;
-	$details[$i]['Quantity'] = 1;
+	$details[$i]['ProductID'] = $_POST['productID'.$i];
+	echo $_POST['productID'.$i];
+	$details[$i]['Discount'] = $_POST['discount'.$i];
+	$details[$i]['Quantity'] = $_POST['quantity'.$i];
 }
-
-
-$purchase = ["total" => 20, "CustomerID"=> 1, "Details" => $details];
+$purchase['Details'] = $details;
 
 addPurchase($purchase);
 
 
-}
+
 ?>
 <p>
 <a href="salespage.php"><button>new sale</button></a>
