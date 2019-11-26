@@ -63,6 +63,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`CustomerID`, `Name`) VALUES
+(0, 'NONE'),
 (1, 'Joe'),
 (2, 'Jill'),
 (3, 'bob'),
