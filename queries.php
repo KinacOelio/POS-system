@@ -18,7 +18,7 @@ function getMatchingCustomers($name_frag){
 	
 	$i = 0;
 	while($row = $array->fetch()){
-		if(preg_match($name_frag, $row['Name'])){
+		if(preg_match("/".$name_frag."/m", $row['Name'])){
 			$retArray[$i] =  $row['Name'];
 			$i+=1;
 		}
@@ -34,7 +34,7 @@ function getMatchingProducts($name_frag){
 	
 	$i = 0;
 	while($row = $array->fetch()){
-		if(preg_match($name_frag, $row['Name'])){
+		if(preg_match("/".$name_frag."/m", $row['Name'])){
 			$retArray[$i] =  $row['Name'];
 			$i+=1;
 		}
