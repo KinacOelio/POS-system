@@ -16,3 +16,8 @@ function openPage(pageName,elmnt) {
   document.getElementById(pageName).style.display = "block";
   elmnt.style.backgroundColor = color;
 }
+
+function searchPanel(){
+	alert("The form was submitted");
+
+}
