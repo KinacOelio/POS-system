@@ -43,6 +43,7 @@
 			session_start();
 			if($_SERVER['REQUEST_METHOD'] === 'POST'){
 				$_SESSION['items'][$_POST['num']] = $_POST[$_POST['num']];
+				$_SESSION['prices'][$_POST['num']] = $_POST[$_POST['num']];
 			}
 			//creating the table
 			for($i=1;$i<=10;$i+=1){

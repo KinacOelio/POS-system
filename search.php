@@ -16,23 +16,31 @@
 				<th>name</th><th>Price</th>
 			</tr>
 	
-<form method='post' action='salespage.php' target='_parent'>
+<form method='post' action='salespage.php' target='_parent' id='items'>
 
 <?php
 $id = 'productID'.$_POST['row'];
 $array = getMatchingProducts($_POST[$id]);
 echo $_POST[$id];
+
 foreach($array as $val){
 	echo "<tr><td>";
-	echo "<input type='submit' value='".$val['Name']."' name=".$_POST['row'].">";
-	echo "<input name='num' value=".$_POST['row'].">";
+	echo "<input type='submit' value='".$val['Name']."' name=".$_POST['row']." id='item'>";
+	echo "<input name='num' value=".$_POST['row']." style='visibility:hidden;'>";
+	echo "<input name='price' value=".$val['Price']." id='test'>";
 	echo '</td><td>';
 	echo '$'.$val['Price'];
 	echo"</td></tr>";
 	echo"</td></tr>";
 }
 
-
+if(sizeof($array)==1){
+?>
+<script type="text/javascript">
+    document.getElementById('item').click();
+</script>
+<?php
+}
 ?>
 </form>
 
