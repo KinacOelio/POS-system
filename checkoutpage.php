@@ -10,37 +10,40 @@
 	
 </head>
 <body>
-<h2>your total is 150 dollars</h2>
-<h6>item</h6>
+
 
 <?php
+session_start();
 $details = [];
 $purchase = ["total" => 0, "CustomerID"=> 0, "Details" => $details];
 
 //setting total and CID
 $total = 0;
 for($i=1;$i<=10;$i+=1){
-	if($_POST['productID'.$i] != ''){$total += $_POST['price'.$i];}
+	$total = $total + $_SESSION['prices'][$i];
 }
 $purchase['total'] = $total;
-$purchase['CustomerID'] = $_POST['CID'];
+$purchase['CustomerID'] = 1;
 
 //filling details
 $detailLine = ["PurchaseLine"=>0, "ProductID" => 0, "Discount" => 0, "Quantity" => 0]; 
 for($i = 1; $i < 10; $i++){
 	$details[$i] = $detailLine;
 	$details[$i]['PurchaseLine'] = $i;
-	$details[$i]['ProductID'] = $_POST['productID'.$i];
-	$details[$i]['Discount'] = $_POST['discount'.$i];
-	$details[$i]['Quantity'] = $_POST['quantity'.$i];
+	$details[$i]['ProductID'] = $_SESSION['items'][$i];
+	$details[$i]['Discount'] = 0;
+	$details[$i]['Quantity'] = $_SESSION['quants'][$i];
 }
 $purchase['Details'] = $details;
 
 addPurchase($purchase);
-
+	$_SESSION['items'] = ['','','','','','','','','','','','','',''];
+	$_SESSION['prices'] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	$_SESSION['quants'] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 
 ?>
+<h2>your total is <?php echo $total ?> dollars</h2>
 <p>
 <a href="salespage.php"><button>new sale</button></a>
 </p>

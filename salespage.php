@@ -61,7 +61,7 @@
 
 	
 <form action="checkoutpage.php" target="_parent" method="post">
-	<input type="submit">
+	<input type="submit" >
 </form>
 
 <script src="functions.js"></script>
