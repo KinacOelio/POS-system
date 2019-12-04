@@ -27,42 +27,12 @@
   </div>
 </nav>
 
-<button id='t' onclick='test()'>test</button>
-		
-		
-		
+<h1>Welcome</h1>
+<?php
+	session_start();
+	$_SESSION['items'] = ['','','','','','','','','','','','','',''];
+?>
 
-
-<iframe src="search.php" id="test" name="search"></iframe> 
-
-	<table border=1>
-		<tr>
-		<th>Item</th><th>Quantity</th><th>Price</th><th>Discount</th>
-		</tr>
-			<?php
-			session_start();
-			if($_SERVER['REQUEST_METHOD'] === 'POST'){
-				$_SESSION['items'][$_POST['num']] = $_POST[$_POST['num']];
-			}
-			//creating the table
-			for($i=1;$i<=10;$i+=1){
-			echo '<form method="post" action="search.php" target="search.php" onsubmit="searchPanel()">';
-			echo "<input type='submit' name='row' value=$i style='visibility:hidden;'>";
-			echo "<tr>";
-			echo "<td><input type='text' name='productID".$i."' value='".$_SESSION['items'][$i]."'></td>";
-			echo "<td><input type='text' name='quantity".$i."'></td>";
-			echo "<td><input type='text' name='price".$i."'></td>";
-			echo "<td><input type='text' name='discount".$i."'></td>";
-			echo "</tr>";
-			echo '</form>';
-			}
-			?>
-	</table>
-
-	
-<form action="checkoutpage.php" target="_parent" method="post">
-	<input type="submit">
-</form>
 
 <script src="functions.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

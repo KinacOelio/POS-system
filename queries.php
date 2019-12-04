@@ -23,6 +23,7 @@ function getMatchingCustomers($name_frag){
 			$i+=1;
 		}
 	}
+	
 	return $retArray;
 }
 
@@ -35,12 +36,13 @@ function getMatchingProducts($name_frag){
 	$i = 0;
 	while($row = $array->fetch()){
 		if(preg_match("/".$name_frag."/m", $row['Name'])){
-			$retArray[$i] =  $row['Name'];
+			$retArray[$i] =  $row;
 			$i+=1;
 		}
 	}
 	return $retArray;
 }
+
 
 
 

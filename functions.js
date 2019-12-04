@@ -18,6 +18,26 @@ function openPage(pageName,elmnt) {
 }
 
 function searchPanel(){
-	alert("The form was submitted");
+	panel = document.getElementById("test");
+	panel.style.visibility = "visible";
 
+}
+
+function filler(){
+		panel = get()
+		panel.style.visibility = "hidden";
+	
+	
+}
+
+function test(){
+	var array;
+	$.ajax({
+    type: "POST",
+    url: 'salespage.php',
+    dataType: 'json',
+    data: {functionname: 'getMatchingCustomers', arguments: ['d']},
+    success: function(obj){array = obj.result}					    
+	});
+	document.write(array[0]);
 }

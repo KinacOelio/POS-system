@@ -3,3 +3,13 @@ table{
 	width: 100%;
 
 }
+
+#test{
+background-color: white;
+position: absolute !important;
+margin: 10% !important;
+width: 80% !important;
+height: 40%;
+visibility: hidden;
+	
+}
