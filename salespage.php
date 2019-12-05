@@ -8,10 +8,43 @@
     <title>Sales</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">	
+	<style>
+	/* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 425px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+	</style>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -26,7 +59,11 @@
     </ul>
   </div>
 </nav>
-
+<div class="container-fluid text-left">
+	<div class="row content">
+	<div class ="col-md-2 sidenav">
+	</div>
+	<div class ="col-8">
 	<table border=1 id='salesTable'>
 		<tr>
 		<th>Item</th><th>Quantity</th><th>Price</th><th>Discount</th>
@@ -65,6 +102,13 @@
 <form action="checkoutpage.php" target="_parent" method="post">
 	<input type="submit" >
 </form>
+	</div>
+	<div class ="col-md-2 sidenav">
+	</div>
+</div>
+<footer class="container-fluid text-center">
+  <p>By Nathan Brackenbury and August Ford</p>
+</footer>
 
 <script src="functions.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
