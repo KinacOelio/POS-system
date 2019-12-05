@@ -93,7 +93,11 @@
 			echo "<tr>";
 			echo "<td><input type='text' name='productID".$i."' value='".$_SESSION['items'][$i]."'></td>";
 			echo "<td><input type='text' name='quantity".$i."' value='".$_SESSION['quants'][$i]."'></td>";
-			echo "<td>".$_SESSION['prices'][$i]."</td>";
+			if($_SESSION['quants'][$i] != ''){
+				echo "<td>".$_SESSION['prices'][$i]*$_SESSION['quants'][$i]."</td>";
+			}else{
+				echo "<td>".$_SESSION['prices'][$i]."</td>";
+			}
 			echo "<td><input type='text' name='discount".$i."' value='".$_SESSION['discounts'][$i]."'></td>";
 			echo "</tr>";
 			echo '</form>';
