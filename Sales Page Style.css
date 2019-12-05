@@ -1,5 +1,5 @@
 
-table{
+#salesTable{
 	width: 100%;
 
 }
@@ -11,7 +11,28 @@ margin: 10% !important;
 width: 80% !important;
 height: 40%;
 visibility: hidden;
+position: fixed !important;
 	
+}
+
+#hide{
+visibility: hidden;
+width: 0% !important;
+}
+
+#itemButton{
+padding: 2%;
+width: 50%;
+ vertical-align: bottom;
+}
+
+#price{
+padding: 2%;
+ vertical-align: top;
+}
+
+#searchTable{
+width: 80% !important;
 }
 
 input{

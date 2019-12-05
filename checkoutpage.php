@@ -20,7 +20,9 @@ $purchase = ["total" => 0, "CustomerID"=> 0, "Details" => $details];
 //setting total and CID
 $total = 0;
 for($i=1;$i<=10;$i+=1){
-	$total = $total + $_SESSION['prices'][$i];
+	if($_SESSION['prices'][$i] != ''){
+		$total = $total + ($_SESSION['prices'][$i]*$_SESSION['quants'][$i]*(1 - ($_SESSION['discounts'][$i]*.01)));
+	}
 }
 $purchase['total'] = $total;
 $purchase['CustomerID'] = 1;
@@ -30,18 +32,18 @@ $detailLine = ["PurchaseLine"=>0, "ProductID" => 0, "Discount" => 0, "Quantity" 
 for($i = 1; $i < 10; $i++){
 	$details[$i] = $detailLine;
 	$details[$i]['PurchaseLine'] = $i;
-	$details[$i]['ProductID'] = $_SESSION['items'][$i];
-	$details[$i]['Discount'] = 0;
+	$details[$i]['ProductID'] = $_SESSION['IDs'][$i];
+	$details[$i]['Discount'] = $_SESSION['discounts'][$i];
 	$details[$i]['Quantity'] = $_SESSION['quants'][$i];
 }
 $purchase['Details'] = $details;
 
 addPurchase($purchase);
 	$_SESSION['items'] = ['','','','','','','','','','','','','',''];
-	$_SESSION['prices'] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-	$_SESSION['quants'] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
-
+	$_SESSION['IDs'] = ['','','','','','','','','','','','','',''];
+	$_SESSION['prices'] = ['','','','','','','','','','','','','',''];
+	$_SESSION['quants'] = ['','','','','','','','','','','','','',''];
+	$_SESSION['discounts'] = ['','','','','','','','','','','','','',''];
 ?>
 <h2>your total is <?php echo $total ?> dollars</h2>
 <p>

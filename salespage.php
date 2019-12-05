@@ -27,25 +27,34 @@
   </div>
 </nav>
 
-	<table border=1>
+	<table border=1 id='salesTable'>
 		<tr>
 		<th>Item</th><th>Quantity</th><th>Price</th><th>Discount</th>
 		</tr>
 			<?php
 			session_start();
+			//filles the cookie arrays
 			if($_SERVER['REQUEST_METHOD'] === 'POST'){
-				$_SESSION['items'][$_POST['num']] = $_POST[$_POST['num']];
-				$_SESSION['prices'][$_POST['num']] = $_POST[$_POST['num']];
+				$_SESSION['items'][$_POST['num']] = $_POST['name'];
+				$_SESSION['IDs'][$_POST['num']] = $_POST['id'];
+				
+				$_SESSION['prices'][$_POST['num']] = $_POST['price'];
+				if($_SESSION['quants'][$_POST['num']] == ''){
+					$_SESSION['quants'][$_POST['num']] = 1;
+				}
+				if($_SESSION['discounts'][$_POST['num']] == ''){
+					$_SESSION['discounts'][$_POST['num']] = 0;
+				}
 			}
 			//creating the table
 			for($i=1;$i<=10;$i+=1){
 			echo '<form method="post" action="search.php" target="search.php" onsubmit="searchPanel()">';
-			echo "<input type='submit' name='row' value=$i style='visibility:collapse;'>";
+			echo "<input type='submit' name='row' value=$i id='hide'>";
 			echo "<tr>";
 			echo "<td><input type='text' name='productID".$i."' value='".$_SESSION['items'][$i]."'></td>";
-			echo "<td><input type='text' name='quantity".$i."'></td>";
-			echo "<td><input type='text' name='price".$i."'></td>";
-			echo "<td><input type='text' name='discount".$i."'></td>";
+			echo "<td><input type='text' name='quantity".$i."' value='".$_SESSION['quants'][$i]."'></td>";
+			echo "<td>".$_SESSION['prices'][$i]."</td>";
+			echo "<td><input type='text' name='discount".$i."' value='".$_SESSION['discounts'][$i]."'></td>";
 			echo "</tr>";
 			echo '</form>';
 			}
