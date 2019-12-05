@@ -109,7 +109,7 @@ INSERT INTO `products` (`ProductID`, `Name`, `Price`, `CategoryID`, `Stock`, `He
 
 CREATE TABLE `purchases` (
   `PurchaseID` int(11) NOT NULL,
-  `total` double(11) NOT NULL,
+  `total` double NOT NULL,
   `CustomerID` int(11),
   `DateTime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;

@@ -31,14 +31,20 @@ $purchase['CustomerID'] = 1;
 $detailLine = ["PurchaseLine"=>0, "ProductID" => 0, "Discount" => 0, "Quantity" => 0]; 
 for($i = 1; $i < 10; $i++){
 	$details[$i] = $detailLine;
+	$id = $_SESSION['IDs'][$i];
+	$quantity = $_SESSION['quants'][$i];
+
 	$details[$i]['PurchaseLine'] = $i;
-	$details[$i]['ProductID'] = $_SESSION['IDs'][$i];
+	$details[$i]['ProductID'] = $id;
 	$details[$i]['Discount'] = $_SESSION['discounts'][$i];
-	$details[$i]['Quantity'] = $_SESSION['quants'][$i];
+	$details[$i]['Quantity'] = $quantity;
+	echo $quantity;
+
+	sellStock($id, $quantity);
 }
 $purchase['Details'] = $details;
 
-addPurchase($purchase);
+	addPurchase($purchase);
 	$_SESSION['items'] = ['','','','','','','','','','','','','',''];
 	$_SESSION['IDs'] = ['','','','','','','','','','','','','',''];
 	$_SESSION['prices'] = ['','','','','','','','','','','','','',''];

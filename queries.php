@@ -82,7 +82,6 @@ function addPurchase($purchaseArray){
 	//A: adding to purchase details.
 	//A: selecting the most recent purchase
 	$purchaseID = $pdo->lastInsertID();
-	echo count($purchaseArray['Details']);
 	foreach($purchaseArray['Details'] as $details => $line){
 		if($line['ProductID'] == '') {return;}
 		$stmt = $pdo->prepare("INSERT INTO pos.purchase_details(PurchaseID, PurchaseLine, ProductID, discount, quantity) VALUES (?,?,?,?,?)");
@@ -94,7 +93,13 @@ function addPurchase($purchaseArray){
 		$stmt = null;
 	} 
 }
-//and so on for the various features the site will need
+
+function sellStock($PID, $amount){
+	global $pdo;
+	$stmt = $pdo->prepare("UPDATE pos.products SET Stock = Stock - ? WHERE ProductID = ?");
+	$stmt->execute([$amount, $PID]);
+	$stmt = NULL;	
+}
 
 
 ?>
