@@ -27,14 +27,6 @@
   </div>
 </nav>
 
-<button id='t' onclick='test()'>test</button>
-		
-		
-		
-
-
-<iframe src="search.php" id="test" name="search"></iframe> 
-
 	<table border=1>
 		<tr>
 		<th>Item</th><th>Quantity</th><th>Price</th><th>Discount</th>
@@ -48,7 +40,7 @@
 			//creating the table
 			for($i=1;$i<=10;$i+=1){
 			echo '<form method="post" action="search.php" target="search.php" onsubmit="searchPanel()">';
-			echo "<input type='submit' name='row' value=$i style='visibility:hidden;'>";
+			echo "<input type='submit' name='row' value=$i style='visibility:collapse;'>";
 			echo "<tr>";
 			echo "<td><input type='text' name='productID".$i."' value='".$_SESSION['items'][$i]."'></td>";
 			echo "<td><input type='text' name='quantity".$i."'></td>";
