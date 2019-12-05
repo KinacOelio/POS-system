@@ -48,6 +48,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+	  <li class="nav-item">
+        <a class="nav-link" href="index.php">home</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="salespage.php">sales page</a>
       </li>
